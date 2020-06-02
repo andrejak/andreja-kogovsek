@@ -10,7 +10,7 @@ export default ({ email }: { email: string }) => {
   }) as Social[];
 
   return (
-    <footer style={{ width: "80%", textAlign: "center" }}>
+    <footer style={{ width: "90%", textAlign: "center" }}>
       <Divider pt={3} />
       <Flex sx={{ justifyContent: "center" }} py={3}>
         {email && (
@@ -28,7 +28,9 @@ export default ({ email }: { email: string }) => {
           ></SocialIconLink>
         ))}
       </Flex>
-      <Text p={2}>© 2020 Andreja Kogovsek</Text>
+      <Text p={2} variant="detail">
+        © 2020 Andreja Kogovsek
+      </Text>
     </footer>
   );
 };

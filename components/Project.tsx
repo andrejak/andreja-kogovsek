@@ -1,25 +1,25 @@
 import { ProjectType } from "../types";
 import RichText from "./RichText";
 import SocialIconLink from "./SocialIconLink";
-import { Flex } from "theme-ui";
+import { Flex, Text, Heading, Box } from "theme-ui";
 
 export default ({ project }: { project: ProjectType }) => (
-  <div>
-    <Flex>
-      <h3>{project.title}</h3>
-      <div>
+  <Box py={2}>
+    <Flex sx={{ alignItems: "center" }}>
+      <Heading as="h3">{project.title}</Heading>
+      <Box px={2}>
         <SocialIconLink link={project.link} />
         {project.source && (
           <SocialIconLink socialType="GitHub" link={project.source} />
         )}
-      </div>
+      </Box>
     </Flex>
     {project.job && (
-      <p>
+      <Text variant="detail">
         <i>Built with the rest of the team at {project.job.fields.company}</i>
-      </p>
+      </Text>
     )}
     <RichText text={project.description} />
     Technologies used: {project.technologies.join(", ")}
-  </div>
+  </Box>
 );

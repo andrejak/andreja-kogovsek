@@ -1,16 +1,16 @@
 import { EducationType } from "../types";
 import { getYear } from "../lib/utils";
-import { Flex } from "theme-ui";
+import { Flex, Heading, Box } from "theme-ui";
 
 export default ({ education }: { education: EducationType }) => (
-  <div>
+  <Box py={2}>
     <Flex sx={{ justifyContent: "space-between" }}>
-      <h3>
-        <b>{education.institution}</b> - {education.course} {education.grade}
-      </h3>
+      <Heading as="h3">
+        {education.institution} - {education.course} {education.grade}
+      </Heading>
       <span>
         {getYear(education.start)} - {getYear(education.end)}
       </span>
     </Flex>
-  </div>
+  </Box>
 );

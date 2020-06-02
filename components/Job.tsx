@@ -1,19 +1,19 @@
 import { JobType } from "../types";
 import RichText from "./RichText";
 import { getYear } from "../lib/utils";
-import { Flex } from "theme-ui";
+import { Flex, Heading, Box } from "theme-ui";
 
 export default ({ job }: { job: JobType }) => (
-  <div>
-    <Flex sx={{ justifyContent: "space-between" }}>
-      <h3>
-        <b>{job.company}</b> - {job.title}
+  <Box py={1}>
+    <Flex sx={{ justifyContent: "space-between", alignItems: "center" }}>
+      <Heading as="h3">
+        {job.company.toUpperCase()} - {job.title}
         {job.internship && " (Internship)"}
-      </h3>
+      </Heading>
       <span>
         {getYear(job.start)} - {getYear(job.end) || "Present"}
       </span>
     </Flex>
     <RichText text={job.description} />
-  </div>
+  </Box>
 );

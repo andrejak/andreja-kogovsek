@@ -9,7 +9,13 @@ export default () => {
 
   return (
     <div>
-      <Flex sx={{ flexDirection: "column", alignItems: "center" }}>
+      <Flex
+        sx={{
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
         {info[0] ? (
           <>
             <h1>{info[0].name || "Andreja Kogovsek"}</h1>
@@ -18,8 +24,10 @@ export default () => {
         ) : (
           <Spinner />
         )}
-        <InternalLink href="/cv">CV</InternalLink>
-        <InternalLink href="/projects">Projects</InternalLink>
+        <Flex sx={{ width: "100%", justifyContent: "space-around" }} py={3}>
+          <InternalLink href="/cv">CV</InternalLink>
+          <InternalLink href="/projects">Projects</InternalLink>
+        </Flex>
       </Flex>
     </div>
   );
