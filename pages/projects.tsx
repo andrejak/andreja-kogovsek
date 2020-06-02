@@ -7,15 +7,15 @@ export default () => {
 
   return (
     <>
-      <h1>Projects</h1>
+      <h1>
+        <Link href="/">
+          <a>Home</a>
+        </Link>{" "}
+        / Projects
+      </h1>
       {projects.map((item, index) => (
         <Project project={item} key={index} />
       ))}
-      <h2>
-        <Link href="/">
-          <a>Back to home</a>
-        </Link>
-      </h2>
     </>
   );
 };

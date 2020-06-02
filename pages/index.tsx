@@ -5,27 +5,22 @@ import { Info } from "../types";
 import RichText from "../components/RichText";
 
 export default () => {
-  const info: Info = useContentful("info", { limit: 1 })[0] || {
-    name: "Andreja Kogovsek",
-  };
+  const info: Info = useContentful("info", { limit: 1 })[0] || {};
 
   return (
-    <div className="container">
-      <Head>
-        <title>{info.name}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className="title">{info.name}</h1>
-        <RichText text={info.description} />
+    <div>
+      <h1>{info.name || "Andreja Kogovsek"}</h1>
+      <RichText text={info.description} />
+      <p>
         <Link href="/cv">
           <a>CV</a>
         </Link>
+      </p>
+      <p>
         <Link href="/projects">
           <a>Projects</a>
         </Link>
-      </main>
+      </p>
     </div>
   );
 };

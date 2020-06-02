@@ -19,6 +19,7 @@ export const useContentful = (contentType: string, params?: any) => {
       }));
     if (entries.items) return entries.items.map((item) => item.fields);
     console.error(`Error fetching entries from contentful.`);
+    return [];
   };
 
   const [entries, setEntries] = React.useState([]);

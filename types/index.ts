@@ -17,15 +17,15 @@ export type SocialType = "Twitter" | "GitHub" | "LinkedIn";
 export type Social = {
   type: SocialType;
   link: string;
-  work: boolean;
+  work?: boolean;
 };
 
 export type ProjectType = {
   title: string;
   description: RichTextNode;
   link: string;
-  source: string;
-  job: any;
+  source?: string;
+  job?: any;
   solo: boolean;
   technologies: string[];
 };
