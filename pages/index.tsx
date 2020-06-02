@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useContentful } from "../lib/contentful";
 import { Info } from "../types";
+import RichText from "../components/RichText";
 
 export default () => {
   const info: Info = useContentful("info", { limit: 1 })[0] || {
@@ -17,14 +18,7 @@ export default () => {
 
       <main>
         <h1 className="title">{info.name}</h1>
-        {info.description && (
-          <>
-            {info.description.content.map((item, index) => (
-              <p key={index}>{item.content[0].value}</p>
-            ))}
-          </>
-        )}
-
+        <RichText text={info.description} />
         <Link href="/cv">
           <a>CV</a>
         </Link>

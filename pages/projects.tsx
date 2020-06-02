@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useContentful } from "../lib/contentful";
+import Project from "../components/Project";
 
 export default () => {
   const projects = useContentful("project");
@@ -7,8 +8,8 @@ export default () => {
   return (
     <>
       <h1>Projects</h1>
-      {projects.map((project) => (
-        <div>{project.title}</div>
+      {projects.map((item, index) => (
+        <Project project={item} key={index} />
       ))}
       <h2>
         <Link href="/">

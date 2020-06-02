@@ -20,7 +20,7 @@ export type Social = {
   work: boolean;
 };
 
-export type Project = {
+export type ProjectType = {
   title: string;
   description: RichTextNode;
   link: string;
@@ -30,25 +30,25 @@ export type Project = {
   technologies: string[];
 };
 
-export type Job = {
+export type JobType = {
   title: string;
   description: RichTextNode;
   company: string;
   location: Location;
-  start: Date;
-  end: Date;
+  start: string;
+  end: string;
   internship: boolean;
 };
 
-export type Skills = {
+export type SkillsType = {
   title: string;
   description: RichTextNode;
 };
 
-export type Education = {
+export type EducationType = {
   institution: string;
   course: string;
   grade: string;
-  start: Date;
-  end: Date;
+  start: string;
+  end: string;
 };
