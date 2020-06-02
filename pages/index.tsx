@@ -1,11 +1,11 @@
-import { useContentful } from "../lib/contentful";
-import { Info } from "../types";
 import RichText from "../components/RichText";
 import { Flex, Spinner } from "theme-ui";
 import InternalLink from "../components/InternalLink";
+import { InfoContext } from "../lib/infoContext";
+import React from "react";
 
 export default () => {
-  const info: Info[] = useContentful("info", { limit: 1 });
+  const info = React.useContext(InfoContext);
 
   return (
     <div>
@@ -16,14 +16,14 @@ export default () => {
           textAlign: "center",
         }}
       >
-        {info[0] ? (
-          <>
-            <h1>{info[0].name || "Andreja Kogovsek"}</h1>
-            <RichText text={info[0].description} />
-          </>
-        ) : (
-          <Spinner />
-        )}
+        <>
+          <h1>{info.name}</h1>
+          {info.description ? (
+            <RichText text={info.description} />
+          ) : (
+            <Spinner />
+          )}
+        </>
         <Flex sx={{ width: "100%", justifyContent: "space-around" }} py={3}>
           <InternalLink href="/cv">CV</InternalLink>
           <InternalLink href="/projects">Projects</InternalLink>

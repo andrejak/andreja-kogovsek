@@ -3,18 +3,21 @@ import { Social } from "../types";
 import { useContentful } from "../lib/contentful";
 import { Flex, Divider, IconButton, Text } from "theme-ui";
 import SocialIconLink from "./SocialIconLink";
+import React from "react";
+import { InfoContext } from "../lib/infoContext";
 
-export default ({ email }: { email: string }) => {
+export default () => {
   const socials = useContentful("social", {
     "fields.work": true,
   }) as Social[];
+  const info = React.useContext(InfoContext);
 
   return (
     <footer style={{ width: "90%", textAlign: "center" }}>
       <Divider pt={3} />
       <Flex sx={{ justifyContent: "center" }} py={3}>
-        {email && (
-          <a href={`mailto:${email}`}>
+        {info.email && (
+          <a href={`mailto:${info.email}`}>
             <IconButton>
               <Mail />
             </IconButton>
@@ -29,7 +32,7 @@ export default ({ email }: { email: string }) => {
         ))}
       </Flex>
       <Text p={2} variant="detail">
-        © 2020 Andreja Kogovsek
+        © 2020 {info.name}
       </Text>
     </footer>
   );
