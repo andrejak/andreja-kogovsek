@@ -89,5 +89,8 @@ export default {
       textAlign: "left",
       borderBottomStyle: "solid",
     },
+    hr: {
+      borderColor: "muted",
+    },
   },
 };

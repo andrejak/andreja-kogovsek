@@ -52,3 +52,20 @@ export type EducationType = {
   start: string;
   end: string;
 };
+
+export type LoadingValue<T> =
+  | {
+      loading: true;
+      data: null;
+      error: null;
+    }
+  | {
+      loading: false;
+      data: null;
+      error: string;
+    }
+  | {
+      loading: false;
+      data: T;
+      error: null;
+    };

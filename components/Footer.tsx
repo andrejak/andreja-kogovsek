@@ -1,5 +1,5 @@
 import { Mail } from "react-feather";
-import { Social } from "../types";
+import { Social, LoadingValue } from "../types";
 import { useContentful } from "../lib/contentful";
 import { Flex, Divider, IconButton, Text } from "theme-ui";
 import SocialIconLink from "./SocialIconLink";
@@ -7,9 +7,9 @@ import React from "react";
 import { InfoContext } from "../lib/infoContext";
 
 export default () => {
-  const socials = useContentful("social", {
+  const socials: LoadingValue<Social[]> = useContentful("social", {
     "fields.work": true,
-  }) as Social[];
+  });
   const info = React.useContext(InfoContext);
 
   return (
@@ -23,15 +23,16 @@ export default () => {
             </IconButton>
           </a>
         )}
-        {socials.map((item, index) => (
-          <SocialIconLink
-            link={item.link}
-            socialType={item.type}
-            key={index}
-          ></SocialIconLink>
-        ))}
+        {socials.data &&
+          socials.data.map((item, index) => (
+            <SocialIconLink
+              link={item.link}
+              socialType={item.type}
+              key={index}
+            ></SocialIconLink>
+          ))}
       </Flex>
-      <Text p={2} variant="detail">
+      <Text pb={2} variant="detail">
         © 2020 {info.name}
       </Text>
     </footer>
