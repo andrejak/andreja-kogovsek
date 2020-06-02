@@ -6,12 +6,12 @@ import { Flex } from "theme-ui";
 export default ({ job }: { job: JobType }) => (
   <div>
     <Flex sx={{ justifyContent: "space-between" }}>
-      <span>
+      <h3>
         <b>{job.company}</b> - {job.title}
         {job.internship && " (Internship)"}
-      </span>
+      </h3>
       <span>
-        {getYear(job.start)} - {getYear(job.end)}
+        {getYear(job.start)} - {getYear(job.end) || "Present"}
       </span>
     </Flex>
     <RichText text={job.description} />

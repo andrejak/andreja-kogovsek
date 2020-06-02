@@ -5,9 +5,9 @@ import { Flex } from "theme-ui";
 export default ({ education }: { education: EducationType }) => (
   <div>
     <Flex sx={{ justifyContent: "space-between" }}>
-      <span>
+      <h3>
         <b>{education.institution}</b> - {education.course} {education.grade}
-      </span>
+      </h3>
       <span>
         {getYear(education.start)} - {getYear(education.end)}
       </span>

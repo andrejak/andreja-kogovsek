@@ -3,7 +3,7 @@ import RichText from "./RichText";
 
 export default ({ skills }: { skills: SkillsType }) => (
   <div>
-    <b>{skills.title}</b>:
+    <h3>{skills.title}</h3>
     <RichText text={skills.description} />
   </div>
 );
