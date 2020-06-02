@@ -15,9 +15,7 @@ export default ({
   link: string;
   socialType?: SocialType;
 }) => (
-  <IconButton>
-    <a href={link} target="_blank" rel="noopener noreferrer">
-      {icons[socialType] || <Link />}
-    </a>
-  </IconButton>
+  <a href={link} target="_blank" rel="noopener noreferrer">
+    <IconButton>{icons[socialType] || <Link />}</IconButton>
+  </a>
 );

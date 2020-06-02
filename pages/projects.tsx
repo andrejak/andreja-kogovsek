@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useContentful } from "../lib/contentful";
 import Project from "../components/Project";
+import { Link as ThemeUILink, Spinner } from "theme-ui";
+import InternalLink from "../components/InternalLink";
 
 export default () => {
   const projects = useContentful("project");
@@ -8,14 +10,13 @@ export default () => {
   return (
     <>
       <h1>
-        <Link href="/">
-          <a>Home</a>
-        </Link>{" "}
-        / Projects
+        <InternalLink href="/">Home</InternalLink> / Projects
       </h1>
-      {projects.map((item, index) => (
-        <Project project={item} key={index} />
-      ))}
+      {projects ? (
+        projects.map((item, index) => <Project project={item} key={index} />)
+      ) : (
+        <Spinner />
+      )}
     </>
   );
 };

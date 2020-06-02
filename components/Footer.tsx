@@ -1,7 +1,7 @@
 import { Mail } from "react-feather";
 import { Social } from "../types";
 import { useContentful } from "../lib/contentful";
-import { Flex, Divider } from "theme-ui";
+import { Flex, Divider, IconButton, Text } from "theme-ui";
 import SocialIconLink from "./SocialIconLink";
 
 export default ({ email }: { email: string }) => {
@@ -10,12 +10,14 @@ export default ({ email }: { email: string }) => {
   }) as Social[];
 
   return (
-    <footer>
-      <Divider />
-      <Flex>
+    <footer style={{ width: "80%", textAlign: "center" }}>
+      <Divider pt={3} />
+      <Flex sx={{ justifyContent: "center" }} py={3}>
         {email && (
           <a href={`mailto:${email}`}>
-            <Mail />
+            <IconButton>
+              <Mail />
+            </IconButton>
           </a>
         )}
         {socials.map((item, index) => (
@@ -26,6 +28,7 @@ export default ({ email }: { email: string }) => {
           ></SocialIconLink>
         ))}
       </Flex>
+      <Text p={2}>© 2020 Andreja Kogovsek</Text>
     </footer>
   );
 };
