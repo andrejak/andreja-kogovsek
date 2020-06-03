@@ -12,7 +12,7 @@ const client =
 
 export const useContentful = (contentType: string, params?: any) => {
   const fetchEntries = async (): Promise<LoadingValue<any[]>> => {
-    if (client) {
+    if (!client) {
       console.error(
         "Missing environment variables",
         process.env.CONTENTFUL_SPACE_ID,
