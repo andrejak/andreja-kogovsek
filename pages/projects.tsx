@@ -16,7 +16,7 @@ const Projects: React.FC = () => {
       </Heading>
       <Box
         sx={{
-          width: `calc(min(${maxWidth}, 100vw))`,
+          width: ["300px", `calc(min(${maxWidth}, 100vw))`],
           minHeight: `calc(100vh - ${footerHeight})`,
         }}
       >

@@ -4,7 +4,7 @@ import { getYear } from "../lib/utils";
 import { Flex, Heading, Box, Text } from "theme-ui";
 
 const Job = ({ item }: { item: JobType }): JSX.Element => (
-  <Box py={1}>
+  <Box py={3}>
     <Flex sx={{ justifyContent: "space-between", alignItems: "center" }}>
       <Heading as="h3">
         <Flex sx={{ alignItems: "baseline" }}>

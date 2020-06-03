@@ -33,9 +33,13 @@ const CV: React.FC = () => {
       </Heading>
       <Heading variant="styles.h2">Experience</Heading>
       <TrailingList items={sortedJobs || []} Component={Job} />
-      <Heading variant="styles.h2">Education</Heading>
+      {sortedJobs && education.data && (
+        <Heading variant="styles.h2">Education</Heading>
+      )}
       <TrailingList items={education.data || []} Component={Education} />
-      <Heading variant="styles.h2">Skills</Heading>
+      {sortedJobs && skills.data && (
+        <Heading variant="styles.h2">Skills</Heading>
+      )}
       <TrailingList items={skills.data || []} Component={Skills} />
     </Box>
   );

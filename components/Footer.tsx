@@ -5,32 +5,48 @@ import { Flex, Divider, IconButton, Text } from "theme-ui";
 import SocialIconLink from "./SocialIconLink";
 import React from "react";
 import { InfoContext } from "../lib/infoContext";
+import { footerHeight } from "../styles";
+
+const socialsToShow: Social[] = [
+  { type: "GitHub", link: "" },
+  { type: "LinkedIn", link: "" },
+  //{ contentType: "Twitter" },
+];
 
 const Footer = (): JSX.Element => {
-  const socials: LoadingValue<Social[]> = useContentfulEntries("social", {
-    "fields.work": true,
-  });
+  const availableSocials: LoadingValue<Social[]> = useContentfulEntries(
+    "social",
+    {
+      "fields.work": true,
+    },
+  );
+  const socials = availableSocials.data
+    ? socialsToShow.map((social) => ({
+        ...availableSocials.data.find(
+          (fetched) => social.type === fetched.type,
+        ),
+      }))
+    : socialsToShow;
   const info = React.useContext(InfoContext);
 
   return (
-    <footer style={{ width: "90%", textAlign: "center" }}>
+    <footer
+      style={{ width: "90%", textAlign: "center", minHeight: footerHeight }}
+    >
       <Divider pt={3} />
-      <Flex sx={{ justifyContent: "center" }} py={3}>
-        {info.email && (
-          <a href={`mailto:${info.email}`}>
-            <IconButton>
-              <Mail />
-            </IconButton>
-          </a>
-        )}
-        {socials.data &&
-          socials.data.map((item, index) => (
-            <SocialIconLink
-              link={item.link}
-              socialType={item.type}
-              key={index}
-            ></SocialIconLink>
-          ))}
+      <Flex sx={{ justifyContent: "center", minHeight: "64px" }} py={3}>
+        <a href={`mailto:${info.email}`}>
+          <IconButton>
+            <Mail />
+          </IconButton>
+        </a>
+        {socials.map((item, index) => (
+          <SocialIconLink
+            link={item.link}
+            socialType={item.type}
+            key={index}
+          ></SocialIconLink>
+        ))}
       </Flex>
       <Text pb={2} variant="detail">
         © 2020 {info.name}
