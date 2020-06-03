@@ -6,6 +6,8 @@ import Skills from "../components/Skills";
 import { getYear } from "../lib/utils";
 import InternalLink from "../components/InternalLink";
 import { Heading, Box, Spinner } from "theme-ui";
+import { footerHeight, maxWidth } from "../styles";
+import TrailingList from "../components/TrailingList";
 
 const CV: React.FC = () => {
   const jobs: LoadingValue<JobType[]> = useContentfulEntries("job");
@@ -18,30 +20,23 @@ const CV: React.FC = () => {
     jobs.data && jobs.data.sort((a, b) => getYear(b.start) - getYear(a.start));
 
   return (
-    <Box p={4} sx={{ maxWidth: "800px", width: "calc(min(800px, 100vw))" }}>
+    <Box
+      p={4}
+      sx={{
+        maxWidth: "800px",
+        width: `calc(min(${maxWidth}, 100vw))`,
+        minHeight: `calc(100vh - ${footerHeight})`,
+      }}
+    >
       <Heading as="h1" py={2}>
         <InternalLink href="/">Home</InternalLink> / CV
       </Heading>
       <Heading variant="styles.h2">Experience</Heading>
-      {sortedJobs ? (
-        sortedJobs.map((item, index) => <Job job={item} key={index} />)
-      ) : (
-        <Spinner />
-      )}
+      <TrailingList items={sortedJobs || []} Component={Job} />
       <Heading variant="styles.h2">Education</Heading>
-      {education.loading ? (
-        <Spinner />
-      ) : (
-        education.data.map((item, index) => (
-          <Education education={item} key={index} />
-        ))
-      )}
+      <TrailingList items={education.data || []} Component={Education} />
       <Heading variant="styles.h2">Skills</Heading>
-      {skills.loading ? (
-        <Spinner />
-      ) : (
-        skills.data.map((item, index) => <Skills skills={item} key={index} />)
-      )}
+      <TrailingList items={skills.data || []} Component={Skills} />
     </Box>
   );
 };

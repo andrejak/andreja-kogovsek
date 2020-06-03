@@ -3,24 +3,24 @@ import RichText from "./RichText";
 import SocialIconLink from "./SocialIconLink";
 import { Flex, Text, Heading, Box } from "theme-ui";
 
-const Project = ({ project }: { project: ProjectType }): JSX.Element => (
-  <Box py={2}>
+const Project = ({ item }: { item: ProjectType }): JSX.Element => (
+  <Box py={4}>
     <Flex sx={{ alignItems: "center" }}>
-      <Heading as="h3">{project.title}</Heading>
+      <Heading as="h3">{item.title}</Heading>
       <Box px={2}>
-        <SocialIconLink link={project.link} />
-        {project.source && (
-          <SocialIconLink socialType="GitHub" link={project.source} />
+        <SocialIconLink link={item.link} />
+        {item.source && (
+          <SocialIconLink socialType="GitHub" link={item.source} />
         )}
       </Box>
     </Flex>
-    {project.job && (
+    {item.job && (
       <Text variant="detail">
-        <i>Built with the rest of the team at {project.job.fields.company}</i>
+        <i>Built with the rest of the team at {item.job.fields.company}</i>
       </Text>
     )}
-    <RichText text={project.description} />
-    Technologies used: {project.technologies.join(", ")}
+    <RichText text={item.description} />
+    Technologies used: {item.technologies.join(", ")}
   </Box>
 );
 

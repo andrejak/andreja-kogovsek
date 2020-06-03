@@ -3,13 +3,13 @@ import RichText from "./RichText";
 import { getYear } from "../lib/utils";
 import { Flex, Heading, Box, Text } from "theme-ui";
 
-const Job = ({ job }: { job: JobType }): JSX.Element => (
+const Job = ({ item }: { item: JobType }): JSX.Element => (
   <Box py={1}>
     <Flex sx={{ justifyContent: "space-between", alignItems: "center" }}>
       <Heading as="h3">
         <Flex sx={{ alignItems: "baseline" }}>
-          {job.company.toUpperCase()} - {job.title}
-          {job.internship && (
+          {item.company.toUpperCase()} - {item.title}
+          {item.internship && (
             <Text variant="detail" pl={1}>
               (Internship)
             </Text>
@@ -17,10 +17,10 @@ const Job = ({ job }: { job: JobType }): JSX.Element => (
         </Flex>
       </Heading>
       <span>
-        {getYear(job.start)} - {getYear(job.end) || "Present"}
+        {getYear(item.start)} - {getYear(item.end) || "Present"}
       </span>
     </Flex>
-    <RichText text={job.description} />
+    <RichText text={item.description} />
   </Box>
 );
 

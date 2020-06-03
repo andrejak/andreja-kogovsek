@@ -1,5 +1,5 @@
 import RichText from "../components/RichText";
-import { Flex, Spinner } from "theme-ui";
+import { Flex, Spinner, Image } from "theme-ui";
 import InternalLink from "../components/InternalLink";
 import { InfoContext } from "../lib/infoContext";
 import React from "react";
@@ -10,14 +10,17 @@ const Home: React.FC = () => {
   const photo = useContentfulAsset("Photo");
 
   return (
-    <Flex pt={4} sx={{ alignItems: "center" }}>
+    <Flex
+      pt={4}
+      sx={{ alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}
+    >
       <Flex
         sx={{
           flexDirection: "column",
-          alignItems: "end",
-          textAlign: "right",
+          alignItems: ["center", "end"],
+          textAlign: ["center", "right"],
         }}
-        p={4}
+        p={3}
       >
         <>
           <h1>{info.name}</h1>
@@ -40,11 +43,12 @@ const Home: React.FC = () => {
         </Flex>
       </Flex>
       {photo.data ? (
-        <img
+        <Image
           src={photo.data.fields.file.url}
           width="250px"
           alt={photo.data.fields.description}
-        ></img>
+          p={3}
+        />
       ) : (
         <Spinner />
       )}
