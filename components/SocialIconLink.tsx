@@ -16,7 +16,9 @@ const SocialIconLink = ({
   socialType?: SocialType;
 }): JSX.Element => (
   <a href={link} target="_blank" rel="noopener noreferrer">
-    <IconButton>{icons[socialType] || <Link />}</IconButton>
+    <IconButton aria-label={socialType || "Link"}>
+      {icons[socialType] || <Link />}
+    </IconButton>
   </a>
 );
 

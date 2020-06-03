@@ -25,7 +25,7 @@ export default {
   colors: {
     text: "#000",
     background: "#fff",
-    primary: "#42849B",
+    primary: "#347F99",
     secondary: "#6AB5CA",
     accent: "#C0707F",
     muted: "#5C7080",
@@ -37,6 +37,11 @@ export default {
         cursor: "pointer",
         color: "secondary",
         transition: "color 100ms ease",
+      },
+      "&:focus": {
+        cursor: "pointer",
+        color: "secondary",
+        transition: "color 150ms ease",
       },
     },
   },
@@ -69,6 +74,11 @@ export default {
       color: "primary",
       textDecoration: "underline",
       "&:hover": {
+        cursor: "pointer",
+        color: "secondary",
+        transition: "color 150ms ease",
+      },
+      "&:focus": {
         cursor: "pointer",
         color: "secondary",
         transition: "color 150ms ease",

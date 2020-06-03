@@ -36,7 +36,7 @@ const Footer = (): JSX.Element => {
       <Divider pt={3} />
       <Flex sx={{ justifyContent: "center", minHeight: "64px" }} py={3}>
         <a href={`mailto:${info.email}`}>
-          <IconButton>
+          <IconButton aria-label={"Mail"}>
             <Mail />
           </IconButton>
         </a>
