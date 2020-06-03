@@ -10,7 +10,7 @@ import { moveAndFadeInTransition } from "../lib/utils";
 
 const Home: React.FC = () => {
   const info = React.useContext(InfoContext);
-  const photo = useContentfulAsset("Photo");
+  const photo = useContentfulAsset("Photo - Small");
   const photoTransitions = moveAndFadeInTransition("50px", "0");
   const descTransitions = moveAndFadeInTransition("-50px", "0");
   const nameTransitions = moveAndFadeInTransition("0", "-50px");
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
       <Flex
         sx={{
           flexDirection: "column",
-          alignItems: ["center", "end"],
+          alignItems: ["center", "flex-end"],
           textAlign: ["center", "right"],
           justifyContent: "start",
           minHeight: photoHeight,
