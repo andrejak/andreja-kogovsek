@@ -7,7 +7,7 @@ import Head from "next/head";
 import React from "react";
 import { InfoProvider, InfoContext } from "../lib/infoContext";
 
-const App = ({ Component, pageProps }: AppProps): React.FC => {
+const App = ({ Component, pageProps }: AppProps): any => {
   const info = React.useContext(InfoContext);
 
   return (
@@ -25,7 +25,14 @@ const App = ({ Component, pageProps }: AppProps): React.FC => {
               minHeight: "100vh",
             }}
           >
-            <main style={{ flexGrow: 1 }}>
+            <main
+              style={{
+                flexGrow: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
               <Component {...pageProps} />
             </main>
             <Footer />

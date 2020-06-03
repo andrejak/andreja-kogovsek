@@ -1,4 +1,4 @@
-import { useContentful } from "../lib/contentful";
+import { useContentfulEntries } from "../lib/contentful";
 import { EducationType, JobType, SkillsType, LoadingValue } from "../types";
 import Job from "../components/Job";
 import Education from "../components/Education";
@@ -7,16 +7,15 @@ import { getYear } from "../lib/utils";
 import InternalLink from "../components/InternalLink";
 import { Heading, Box, Spinner } from "theme-ui";
 
-const CV = (): React.FC => {
-  const jobs: LoadingValue<JobType[]> = useContentful("job");
-  const education: LoadingValue<EducationType[]> = useContentful("education");
-  const skills: LoadingValue<SkillsType[]> = useContentful("skills");
+const CV: React.FC = () => {
+  const jobs: LoadingValue<JobType[]> = useContentfulEntries("job");
+  const education: LoadingValue<EducationType[]> = useContentfulEntries(
+    "education",
+  );
+  const skills: LoadingValue<SkillsType[]> = useContentfulEntries("skills");
 
   const sortedJobs =
-    jobs.data &&
-    jobs.data.sort(
-      (a, b) => parseInt(getYear(b.start)) - parseInt(getYear(a.start)),
-    );
+    jobs.data && jobs.data.sort((a, b) => getYear(b.start) - getYear(a.start));
 
   return (
     <Box p={4} sx={{ maxWidth: "800px", width: "calc(min(800px, 100vw))" }}>

@@ -1,11 +1,11 @@
-import { useContentful } from "../lib/contentful";
+import { useContentfulEntries } from "../lib/contentful";
 import Project from "../components/Project";
 import { Spinner, Heading, Box } from "theme-ui";
 import InternalLink from "../components/InternalLink";
 import { LoadingValue, ProjectType } from "../types";
 
-const Projects = (): React.FC => {
-  const projects: LoadingValue<ProjectType[]> = useContentful("project");
+const Projects: React.FC = () => {
+  const projects: LoadingValue<ProjectType[]> = useContentfulEntries("project");
 
   return (
     <Box p={4} sx={{ maxWidth: "800px", width: "calc(min(800px, 100vw))" }}>

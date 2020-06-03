@@ -3,18 +3,21 @@ import { Flex, Spinner } from "theme-ui";
 import InternalLink from "../components/InternalLink";
 import { InfoContext } from "../lib/infoContext";
 import React from "react";
+import { useContentfulAsset } from "../lib/contentful";
 
-const Home = (): React.FC => {
+const Home: React.FC = () => {
   const info = React.useContext(InfoContext);
+  const photo = useContentfulAsset("Photo");
 
   return (
-    <div>
+    <Flex pt={4} sx={{ alignItems: "center" }}>
       <Flex
         sx={{
           flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
+          alignItems: "end",
+          textAlign: "right",
         }}
+        p={4}
       >
         <>
           <h1>{info.name}</h1>
@@ -24,12 +27,28 @@ const Home = (): React.FC => {
             <Spinner />
           )}
         </>
-        <Flex sx={{ width: "100%", justifyContent: "space-around" }} py={3}>
-          <InternalLink href="/cv">CV</InternalLink>
+        <Flex
+          sx={{
+            minHeight: "100px",
+            justifyContent: "space-around",
+            flexDirection: "column",
+          }}
+          py={3}
+        >
           <InternalLink href="/projects">Projects</InternalLink>
+          <InternalLink href="/cv">CV</InternalLink>
         </Flex>
       </Flex>
-    </div>
+      {photo.data ? (
+        <img
+          src={photo.data.fields.file.url}
+          width="250px"
+          alt={photo.data.fields.description}
+        ></img>
+      ) : (
+        <Spinner />
+      )}
+    </Flex>
   );
 };
 

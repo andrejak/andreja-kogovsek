@@ -1,4 +1,4 @@
-import { createClient } from "contentful";
+import { createClient, Asset } from "contentful";
 import React from "react";
 import { LoadingValue } from "../types";
 
@@ -11,10 +11,16 @@ const client =
       })
     : null;
 
-export const useContentful = (
+const defaultLoadingValue: LoadingValue<any> = {
+  loading: true,
+  data: null,
+  error: null,
+};
+
+export const useContentfulEntries = (
   contentType: string,
   params?: { [key: string]: any },
-): LoadingValue<any> => {
+): LoadingValue<any[]> => {
   const fetchEntries = async (): Promise<LoadingValue<any[]>> => {
     const entries = client
       .getEntries({
@@ -33,20 +39,50 @@ export const useContentful = (
     return entries;
   };
 
-  const [entries, setEntries] = React.useState<LoadingValue<any>>({
-    loading: true,
-    data: null,
-    error: null,
-  });
+  const [entries, setEntries] = React.useState<LoadingValue<any>>(
+    defaultLoadingValue,
+  );
 
   React.useEffect(() => {
-    async function getPosts() {
-      setEntries({ loading: true, data: null, error: null });
+    async function getEntries() {
+      setEntries(defaultLoadingValue);
       const allEntries = await fetchEntries();
       setEntries(allEntries);
     }
-    getPosts();
+    getEntries();
   }, []);
 
   return entries;
+};
+
+export const useContentfulAsset = (title: string): LoadingValue<Asset> => {
+  const fetchAsset = async (): Promise<LoadingValue<Asset>> => {
+    const asset = client
+      .getAssets()
+      .then(
+        (res) =>
+          ({
+            loading: false,
+            data: res.items.filter((item) => item.fields.title === title)[0],
+            error: null,
+          } as LoadingValue<any>),
+      )
+      .catch((e) => ({ loading: false, error: e, data: null }));
+    return asset;
+  };
+
+  const [asset, setAsset] = React.useState<LoadingValue<any>>(
+    defaultLoadingValue,
+  );
+
+  React.useEffect(() => {
+    async function getAsset() {
+      setAsset(defaultLoadingValue);
+      const newAsset = await fetchAsset();
+      setAsset(newAsset);
+    }
+    getAsset();
+  }, []);
+
+  return asset;
 };

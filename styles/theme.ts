@@ -25,9 +25,9 @@ export default {
   colors: {
     text: "#000",
     background: "#fff",
-    primary: "#0A6640",
-    secondary: "#0F9960",
-    accent: "#A82255",
+    primary: "#42849B",
+    secondary: "#6AB5CA",
+    accent: "#C0707F",
     muted: "#5C7080",
   },
   buttons: {
@@ -36,6 +36,7 @@ export default {
       "&:hover": {
         cursor: "pointer",
         color: "secondary",
+        transition: "color 100ms ease",
       },
     },
   },
@@ -70,6 +71,7 @@ export default {
       "&:hover": {
         cursor: "pointer",
         color: "secondary",
+        transition: "color 150ms ease",
       },
     },
     code: {
