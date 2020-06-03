@@ -3,23 +3,23 @@ import React from "react";
 import { LoadingValue } from "../types";
 
 const client =
-  process.env.CONTENTFUL_SPACE_ID && process.env.CONTENTFUL_ACCESS_TOKEN
+  process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID &&
+  process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
     ? createClient({
-        space: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+        accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
       })
     : null;
+if (!client) {
+  console.error(
+    "Missing environment variables",
+    process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+    process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+  );
+}
 
 export const useContentful = (contentType: string, params?: any) => {
   const fetchEntries = async (): Promise<LoadingValue<any[]>> => {
-    if (!client) {
-      console.error(
-        "Missing environment variables",
-        process.env.CONTENTFUL_SPACE_ID,
-        process.env.CONTENTFUL_ACCESS_TOKEN,
-        process.env
-      );
-    }
     const entries = client
       .getEntries({
         content_type: contentType,
