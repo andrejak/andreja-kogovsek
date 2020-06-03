@@ -1,7 +1,7 @@
 import { RichTextNode } from "../types";
 import { Box, Link } from "theme-ui";
 
-const RichText = ({ text }: { text: RichTextNode }) => {
+const RichText = ({ text }: { text: RichTextNode }): JSX.Element => {
   const contents =
     text.content &&
     text.content.map((item, index) => <RichText text={item} key={index} />);
@@ -19,7 +19,6 @@ const RichText = ({ text }: { text: RichTextNode }) => {
     case "unordered-list":
       return <ul>{contents}</ul>;
     default:
-      console.log("TODO: New content type", text);
       return <div />;
   }
 };

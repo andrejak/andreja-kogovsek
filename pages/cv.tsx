@@ -7,7 +7,7 @@ import { getYear } from "../lib/utils";
 import InternalLink from "../components/InternalLink";
 import { Heading, Box, Spinner } from "theme-ui";
 
-export default () => {
+const CV = (): React.FC => {
   const jobs: LoadingValue<JobType[]> = useContentful("job");
   const education: LoadingValue<EducationType[]> = useContentful("education");
   const skills: LoadingValue<SkillsType[]> = useContentful("skills");
@@ -15,7 +15,7 @@ export default () => {
   const sortedJobs =
     jobs.data &&
     jobs.data.sort(
-      (a, b) => parseInt(getYear(b.start)) - parseInt(getYear(a.start))
+      (a, b) => parseInt(getYear(b.start)) - parseInt(getYear(a.start)),
     );
 
   return (
@@ -46,3 +46,5 @@ export default () => {
     </Box>
   );
 };
+
+export default CV;

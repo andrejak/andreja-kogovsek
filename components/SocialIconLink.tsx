@@ -8,14 +8,16 @@ const icons: { [key in SocialType]: JSX.Element } = {
   LinkedIn: <Linkedin />,
 };
 
-export default ({
+const SocialIconLink = ({
   link,
   socialType,
 }: {
   link: string;
   socialType?: SocialType;
-}) => (
+}): JSX.Element => (
   <a href={link} target="_blank" rel="noopener noreferrer">
     <IconButton>{icons[socialType] || <Link />}</IconButton>
   </a>
 );
+
+export default SocialIconLink;

@@ -3,7 +3,7 @@ import RichText from "./RichText";
 import SocialIconLink from "./SocialIconLink";
 import { Flex, Text, Heading, Box } from "theme-ui";
 
-export default ({ project }: { project: ProjectType }) => (
+const Project = ({ project }: { project: ProjectType }): JSX.Element => (
   <Box py={2}>
     <Flex sx={{ alignItems: "center" }}>
       <Heading as="h3">{project.title}</Heading>
@@ -23,3 +23,5 @@ export default ({ project }: { project: ProjectType }) => (
     Technologies used: {project.technologies.join(", ")}
   </Box>
 );
+
+export default Project;

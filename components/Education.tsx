@@ -2,7 +2,7 @@ import { EducationType } from "../types";
 import { getYear } from "../lib/utils";
 import { Flex, Heading, Box } from "theme-ui";
 
-export default ({ education }: { education: EducationType }) => (
+const Education = ({ education }: { education: EducationType }): React.FC => (
   <Box py={2}>
     <Flex sx={{ justifyContent: "space-between" }}>
       <Heading as="h3">
@@ -14,3 +14,5 @@ export default ({ education }: { education: EducationType }) => (
     </Flex>
   </Box>
 );
+
+export default Education;

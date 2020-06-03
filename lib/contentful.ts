@@ -10,15 +10,11 @@ const client =
         accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
       })
     : null;
-if (!client) {
-  console.error(
-    "Missing environment variables",
-    process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-    process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
-  );
-}
 
-export const useContentful = (contentType: string, params?: any) => {
+export const useContentful = (
+  contentType: string,
+  params?: { [key: string]: any },
+): LoadingValue<any> => {
   const fetchEntries = async (): Promise<LoadingValue<any[]>> => {
     const entries = client
       .getEntries({
@@ -31,7 +27,7 @@ export const useContentful = (contentType: string, params?: any) => {
             loading: false,
             data: res.items.map((item) => item.fields),
             error: null,
-          } as LoadingValue<any[]>)
+          } as LoadingValue<any[]>),
       )
       .catch((e) => ({ loading: false, error: e, data: null }));
     return entries;

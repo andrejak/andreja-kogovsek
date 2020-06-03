@@ -4,7 +4,7 @@ import InternalLink from "../components/InternalLink";
 import { InfoContext } from "../lib/infoContext";
 import React from "react";
 
-export default () => {
+const Home = (): React.FC => {
   const info = React.useContext(InfoContext);
 
   return (
@@ -32,3 +32,5 @@ export default () => {
     </div>
   );
 };
+
+export default Home;

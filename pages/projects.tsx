@@ -4,7 +4,7 @@ import { Spinner, Heading, Box } from "theme-ui";
 import InternalLink from "../components/InternalLink";
 import { LoadingValue, ProjectType } from "../types";
 
-export default () => {
+const Projects = (): React.FC => {
   const projects: LoadingValue<ProjectType[]> = useContentful("project");
 
   return (
@@ -22,3 +22,5 @@ export default () => {
     </Box>
   );
 };
+
+export default Projects;

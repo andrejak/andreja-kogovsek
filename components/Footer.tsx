@@ -1,13 +1,13 @@
 import { Mail } from "react-feather";
 import { Social, LoadingValue } from "../types";
-import { useContentful } from "../lib/contentful";
+import { useContentfulEntries } from "../lib/contentful";
 import { Flex, Divider, IconButton, Text } from "theme-ui";
 import SocialIconLink from "./SocialIconLink";
 import React from "react";
 import { InfoContext } from "../lib/infoContext";
 
-export default () => {
-  const socials: LoadingValue<Social[]> = useContentful("social", {
+const Footer = (): JSX.Element => {
+  const socials: LoadingValue<Social[]> = useContentfulEntries("social", {
     "fields.work": true,
   });
   const info = React.useContext(InfoContext);
@@ -38,3 +38,5 @@ export default () => {
     </footer>
   );
 };
+
+export default Footer;

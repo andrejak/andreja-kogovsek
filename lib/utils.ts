@@ -1,3 +1,3 @@
-export const getYear = (date: string) => {
-  return date ? date.substring(0, 4) : "";
+export const getYear = (date: string): number => {
+  return date ? parseInt(date.substring(0, 4)) : "";
 };

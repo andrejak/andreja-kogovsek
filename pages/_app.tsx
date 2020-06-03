@@ -7,7 +7,7 @@ import Head from "next/head";
 import React from "react";
 import { InfoProvider, InfoContext } from "../lib/infoContext";
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps): React.FC => {
   const info = React.useContext(InfoContext);
 
   return (
@@ -34,4 +34,6 @@ export default function App({ Component, pageProps }: AppProps) {
       </InfoProvider>
     </>
   );
-}
+};
+
+export default App;
