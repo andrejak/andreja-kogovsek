@@ -1,5 +1,5 @@
 import RichText from "../components/RichText";
-import { Box, Flex, Spinner, Image, Heading } from "theme-ui";
+import { Box, Flex, Image, Heading } from "theme-ui";
 import InternalLink from "../components/InternalLink";
 import { InfoContext } from "../lib/infoContext";
 import React from "react";
@@ -7,7 +7,6 @@ import { useContentfulAsset } from "../lib/contentful";
 import { animated } from "react-spring";
 import { photoWidth, photoHeight } from "../styles";
 import { moveAndFadeInTransition } from "../lib/utils";
-import ModeToggle from "../components/Header/ModeToggle";
 
 const Home: React.FC = () => {
   const info = React.useContext(InfoContext);

@@ -9,6 +9,7 @@ const ModeToggle: React.FC = () => {
       onClick={() => {
         setColorMode(colorMode === "default" ? "dark" : "default");
       }}
+      m={1}
     >
       {colorMode === "default" ? <Moon /> : <Sun />}
     </IconButton>
