@@ -1,7 +1,7 @@
 export type RichTextNode = {
   nodeType: string;
   content: RichTextNode[];
-  data: any;
+  data?: any;
   value?: string;
 };
 

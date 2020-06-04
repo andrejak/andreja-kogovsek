@@ -22,6 +22,9 @@ export const useContentfulEntries = (
   params?: { [key: string]: any },
 ): LoadingValue<any[]> => {
   const fetchEntries = async (): Promise<LoadingValue<any[]>> => {
+    if (!client) {
+      return defaultLoadingValue;
+    }
     const entries = client
       .getEntries({
         content_type: contentType,
@@ -57,6 +60,9 @@ export const useContentfulEntries = (
 
 export const useContentfulAsset = (title: string): LoadingValue<Asset> => {
   const fetchAsset = async (): Promise<LoadingValue<Asset>> => {
+    if (!client) {
+      return defaultLoadingValue;
+    }
     const asset = client
       .getAssets()
       .then(
