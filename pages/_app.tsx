@@ -6,6 +6,7 @@ import theme from "../styles/theme";
 import Head from "next/head";
 import React from "react";
 import { InfoProvider, InfoContext } from "../lib/infoContext";
+import Header from "../components/Header";
 
 const App = ({ Component, pageProps }: AppProps): any => {
   const info = React.useContext(InfoContext);
@@ -18,6 +19,7 @@ const App = ({ Component, pageProps }: AppProps): any => {
       </Head>
       <InfoProvider>
         <ThemeProvider theme={theme}>
+          <Header />
           <Flex
             sx={{
               flexDirection: "column",

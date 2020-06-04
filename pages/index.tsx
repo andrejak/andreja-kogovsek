@@ -7,6 +7,7 @@ import { useContentfulAsset } from "../lib/contentful";
 import { animated } from "react-spring";
 import { photoWidth, photoHeight } from "../styles";
 import { moveAndFadeInTransition } from "../lib/utils";
+import ModeToggle from "../components/Header/ModeToggle";
 
 const Home: React.FC = () => {
   const info = React.useContext(InfoContext);
@@ -19,7 +20,11 @@ const Home: React.FC = () => {
   return (
     <Flex
       pt={4}
-      sx={{ alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}
+      sx={{
+        alignItems: "center",
+        flexWrap: "wrap",
+        justifyContent: "center",
+      }}
     >
       <Flex
         sx={{

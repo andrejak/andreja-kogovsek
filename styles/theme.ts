@@ -23,12 +23,21 @@ export default {
   breakpoints: ["40em", "52em", "64em"],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   colors: {
-    text: "#000",
-    background: "#fff",
+    text: "#182026",
+    background: "#F5F8FA",
     primary: "#347F99",
     secondary: "#6AB5CA",
     accent: "#C0707F",
     muted: "#5C7080",
+    modes: {
+      dark: {
+        text: "#F5F8FA",
+        background: "#202B33",
+        primary: "#499BB8",
+        secondary: "#73BFD9",
+        muted: "#CED9E0",
+      },
+    },
   },
   buttons: {
     icon: {
