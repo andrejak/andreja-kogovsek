@@ -10,18 +10,38 @@ import { Global } from "@emotion/core";
 
 const App = ({ Component, pageProps }: AppProps): any => {
   const info = React.useContext(InfoContext);
+  const url = "https://andreja-kogovsek.now.sh/";
+  const imageUrl = "/favicon.ico";
+  const title = info.name;
+  const description = `Personal website/CV/portfolio`;
 
   return (
     <>
       <Head>
-        <title>{info.name}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{title}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta name="description" content={description} />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:image" content={imageUrl} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:site" content="@andrejak" />
+        <meta name="twitter:creator" content="@andrejak" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:image" content={imageUrl} />
+        <link rel="canonical" href={url} />
+        <link rel="icon" href={imageUrl} />
       </Head>
       <InfoProvider>
         <ThemeProvider theme={theme}>
           {" "}
           <Global
-            styles={(theme) => ({
+            styles={() => ({
               "*": {
                 boxSizing: "border-box",
               },
