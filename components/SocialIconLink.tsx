@@ -15,7 +15,12 @@ const SocialIconLink = ({
   link: string;
   socialType?: SocialType;
 }): JSX.Element => (
-  <a href={link} target="_blank" rel="noopener noreferrer">
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    title={socialType || link}
+  >
     <IconButton aria-label={socialType || "Link"}>
       {icons[socialType] || <Link />}
     </IconButton>

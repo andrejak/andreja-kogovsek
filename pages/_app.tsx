@@ -26,6 +26,7 @@ const App = ({ Component, pageProps }: AppProps): any => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
+        <meta property="og:site_name" content={title} />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:image" content={imageUrl} />
         <meta name="twitter:title" content={title} />
