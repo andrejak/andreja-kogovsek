@@ -10,9 +10,9 @@ import { Global } from "@emotion/core";
 
 const App = ({ Component, pageProps }: AppProps): any => {
   const info = React.useContext(InfoContext);
-  const url = "https://andreja-kogovsek.now.sh/";
   const imageUrl = "/favicon.ico";
   const title = info.name;
+  const url = info.link;
   const description = `Personal website/CV/portfolio`;
 
   return (

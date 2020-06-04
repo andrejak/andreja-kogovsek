@@ -10,6 +10,7 @@ export type Info = {
   email: string;
   phone: string;
   description: RichTextNode;
+  link?: string;
 };
 
 export type SocialType = "Twitter" | "GitHub" | "LinkedIn";

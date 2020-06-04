@@ -4,6 +4,7 @@ import { useContentfulEntries } from "./contentful";
 
 const initState = {
   name: "Andreja Kogovsek",
+  link: "https://andreja-kogovsek.now.sh/",
 };
 
 export const InfoContext = React.createContext<Partial<Info>>(initState);
