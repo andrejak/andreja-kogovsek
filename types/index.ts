@@ -29,6 +29,7 @@ export type ProjectType = {
   job?: any;
   solo: boolean;
   technologies: string[];
+  start: string;
 };
 
 export type JobType = {
