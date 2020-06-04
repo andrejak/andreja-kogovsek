@@ -1,7 +1,11 @@
-import { useTransition, animated } from "react-spring";
+import { useTransition } from "react-spring";
 
-export const getYear = (date: string): number => {
-  return date ? parseInt(date.substring(0, 4)) : 0;
+export const getYear = (date: string): number | undefined => {
+  if (!date || date.length < 4) {
+    return undefined;
+  }
+  const parsed: number = parseInt(date.substring(0, 4));
+  return Number.isNaN(parsed) ? undefined : parsed;
 };
 
 export const moveAndFadeInTransition = (x: string, y: string): any =>
