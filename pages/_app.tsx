@@ -1,4 +1,3 @@
-import "../styles/global.css";
 import { AppProps } from "next/app";
 import Footer from "../components/Footer";
 import { ThemeProvider, Flex } from "theme-ui";
@@ -7,6 +6,7 @@ import Head from "next/head";
 import React from "react";
 import { InfoProvider, InfoContext } from "../lib/infoContext";
 import Header from "../components/Header";
+import { Global } from "@emotion/core";
 
 const App = ({ Component, pageProps }: AppProps): any => {
   const info = React.useContext(InfoContext);
@@ -19,6 +19,14 @@ const App = ({ Component, pageProps }: AppProps): any => {
       </Head>
       <InfoProvider>
         <ThemeProvider theme={theme}>
+          {" "}
+          <Global
+            styles={(theme) => ({
+              "*": {
+                boxSizing: "border-box",
+              },
+            })}
+          />
           <Header />
           <Flex
             sx={{
