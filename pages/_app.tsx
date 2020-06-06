@@ -35,6 +35,10 @@ const App = ({ Component, pageProps }: AppProps): any => {
         <meta name="twitter:creator" content="@andrejak" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image" content={imageUrl} />
+        <meta
+          name="google-site-verification"
+          content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
+        />
         <link rel="canonical" href={url} />
         <link rel="icon" href={imageUrl} />
       </Head>
