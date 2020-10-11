@@ -8,7 +8,7 @@ const InternalLink = ({
   href: string;
   children: React.ReactNode;
 }): JSX.Element => (
-  <Link href={href}>
+  <Link href={href} passHref>
     <ThemeUILink tabIndex={0}>{children}</ThemeUILink>
   </Link>
 );

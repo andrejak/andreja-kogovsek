@@ -15,9 +15,10 @@ const Projects: React.FC = () => {
 
   return (
     <Box p={4} sx={{ maxWidth }}>
-      <Heading as="h1">
+      <Heading as="h1" py={2}>
         <InternalLink href="/">Home</InternalLink> / Projects
       </Heading>
+      <Heading variant="styles.h2">All projects</Heading>
       <Box
         sx={{
           width: ["300px", `calc(min(${maxWidth}, 90vw))`],

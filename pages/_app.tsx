@@ -40,7 +40,6 @@ const App = ({ Component, pageProps }: AppProps): any => {
       </Head>
       <InfoProvider>
         <ThemeProvider theme={theme}>
-          {" "}
           <Global
             styles={() => ({
               "*": {

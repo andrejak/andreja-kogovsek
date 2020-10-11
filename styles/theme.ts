@@ -24,23 +24,26 @@ export default {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   colors: {
     text: "#182026",
-    background: "#F5F8FA",
-    primary: "#347F99",
-    secondary: "#6AB5CA",
-    accent: "#C0707F",
-    muted: "#5C7080",
+    background: "#CAC5BC",
+    primary: "#232C44",
+    secondary: "#355288",
+    accent: "#a95162",
+    muted: "#435360",
     modes: {
       dark: {
-        text: "#F5F8FA",
-        background: "#202B33",
-        primary: "#499BB8",
-        secondary: "#73BFD9",
-        muted: "#CED9E0",
+        text: "#CAC5BC",
+        background: "#070B1C",
+        primary: "#C0707F",
+        secondary: "#D598A5",
+        muted: "#777E82",
+        accent: "#C0707F",
       },
     },
   },
   buttons: {
     icon: {
+      width: "48px",
+      height: "48px",
       color: "text",
       "&:hover": {
         cursor: "pointer",

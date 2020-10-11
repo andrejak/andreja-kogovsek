@@ -3,9 +3,9 @@ import { GitHub, Linkedin, Twitter, Link } from "react-feather";
 import { IconButton } from "theme-ui";
 
 const icons: { [key in SocialType]: JSX.Element } = {
-  Twitter: <Twitter />,
-  GitHub: <GitHub />,
-  LinkedIn: <Linkedin />,
+  Twitter: <Twitter aria-label="Twitter" width="48" height="48" />,
+  GitHub: <GitHub aria-label="GitHub" />,
+  LinkedIn: <Linkedin aria-label="Linkedin" />,
 };
 
 const SocialIconLink = ({
@@ -21,9 +21,7 @@ const SocialIconLink = ({
     rel="noopener noreferrer"
     title={socialType || link}
   >
-    <IconButton aria-label={socialType || "Link"}>
-      {icons[socialType] || <Link />}
-    </IconButton>
+    <IconButton>{icons[socialType] || <Link aria-label="Link" />}</IconButton>
   </a>
 );
 

@@ -1,5 +1,5 @@
 import RichText from "../components/RichText";
-import { Box, Flex, Image, Heading } from "theme-ui";
+import { Box, Flex, Heading } from "theme-ui";
 import InternalLink from "../components/InternalLink";
 import { InfoContext } from "../lib/infoContext";
 import React from "react";
@@ -68,7 +68,6 @@ const Home: React.FC = () => {
                       justifyContent: "space-around",
                       flexDirection: "column",
                     }}
-                    py={3}
                   >
                     <InternalLink href="/projects">Projects</InternalLink>
                     <InternalLink href="/cv">CV</InternalLink>
@@ -84,10 +83,11 @@ const Home: React.FC = () => {
             ({ item, key, props }) =>
               item && (
                 <animated.div key={key} style={props}>
-                  <Image
+                  <img
                     src={photo.data.fields.file.url}
+                    alt={photo.data.fields.description || "Photo"}
+                    aria-label={photo.data.fields.description || "Photo"}
                     width={photoWidth}
-                    alt={photo.data.fields.description}
                   />
                 </animated.div>
               ),

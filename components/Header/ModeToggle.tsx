@@ -10,8 +10,13 @@ const ModeToggle: React.FC = () => {
         setColorMode(colorMode === "default" ? "dark" : "default");
       }}
       m={1}
+      aria-label="Mode toggle"
     >
-      {colorMode === "default" ? <Moon /> : <Sun />}
+      {colorMode === "default" ? (
+        <Moon aria-label="Dark mode" />
+      ) : (
+        <Sun aria-label="Light mode" />
+      )}
     </IconButton>
   );
 };

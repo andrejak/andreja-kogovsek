@@ -36,8 +36,8 @@ const Footer = (): JSX.Element => {
       <Divider pt={3} />
       <Flex sx={{ justifyContent: "center", minHeight: "64px" }} py={3}>
         <a href={`mailto:${info.email}`} title="Email">
-          <IconButton aria-label={"Mail"}>
-            <Mail />
+          <IconButton>
+            <Mail aria-label="Mail" />
           </IconButton>
         </a>
         {socials.map((item, index) => (
