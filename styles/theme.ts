@@ -36,7 +36,7 @@ export default {
         primary: "#C0707F",
         secondary: "#D598A5",
         muted: "#777E82",
-        accent: "#C0707F",
+        accent: "#4769a8",
       },
     },
   },

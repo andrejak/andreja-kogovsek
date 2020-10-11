@@ -29,7 +29,7 @@ const CV: React.FC = () => {
       }}
     >
       <Heading as="h1" py={2}>
-        <InternalLink href="/">Home</InternalLink>/ CV
+        <InternalLink href="/">Home</InternalLink> / CV
       </Heading>
       <Heading variant="styles.h2">Experience</Heading>
       <TrailingList items={sortedJobs || []} Component={Job} />

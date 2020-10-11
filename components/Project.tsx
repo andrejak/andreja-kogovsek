@@ -4,7 +4,7 @@ import SocialIconLink from "./SocialIconLink";
 import { Flex, Text, Heading, Box } from "theme-ui";
 
 const Project = ({ item }: { item: ProjectType }): JSX.Element => (
-  <Box py={4}>
+  <Box py={2}>
     <Flex sx={{ alignItems: "center" }}>
       <Heading as="h3">{item.title}</Heading>
       <Box px={2}>
